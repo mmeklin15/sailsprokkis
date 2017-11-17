@@ -1,7 +1,12 @@
 <!-- Kaikki wrapperit ennen pääviewiä -->
-<div class="ui main container">
-    <div class="ui raised segment grid">
-        <!-- Pääview -->
-        <%- body %>
+<div class="ui main container" style="margin-top:5em; margin-bottom:3em;">
+    <div class="ui grid">
+        <div class="twelve wide column">
+            <%- body %>
+        </div>
+        <div class="four wide column">
+            <%- partial('../widgets/widgets.ejs') %>
+        </div>
     </div>
+    <!-- Pääview -->
 </div>

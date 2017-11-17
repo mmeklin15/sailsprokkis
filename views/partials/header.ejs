@@ -2,15 +2,20 @@
     <!-- Navigaatio -->
     <div class="ui container">
         <div class="ui large secondary inverted pointing menu">
-        <a class="toc item">
-            <i class="sidebar icon"></i>
-        </a>
-        <a class="active item">Blogi</a>
-        <a class="item">Arkisto</a>
-        <a class="item">Muita juttuja</a>
-        <div class="right item">
-            <a class="ui inverted button">Kirjaudu</a>
-        </div>
+            <a class="active item">Blogi</a>
+            <a class="item">Arkisto</a>
+            <a class="item">Muita juttuja</a>
+            <% if (req.user) { %> 
+                <a class="item">Hallintapaneeli</a>
+            <% } %>
+            <div class="right item">
+                <% if (req.user) { %>                        
+                    <a href="/logout" class="ui inverted logout button">Kirjaudu ulos</a>
+                <% } else { %>
+                    <a class="ui inverted login button">Kirjaudu</a>
+                    <%- partial('../user/login.ejs') %>
+                <% } %>
+            </div>
         </div>
     </div>
 </div>
