@@ -32,19 +32,38 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-  '/': {view: 'homepage'},
+    
 
-  '/test': {view: 'test'},
+    '/test': {view: 'test'},
 
-  '/user/details': {view: "user/userdetails"},
-  'POST /login': {
-      controller: 'AuthController',
-      action: 'process'
-  },
-  'GET /logout': {
-      controller: 'AuthController',
-      action: 'logout'
-  }
+    // Main routes
+    '/': {
+        controller:'MainController',
+        action:'home'
+    },
+
+    // Blogpost routes
+    '/blogpost/new': {
+        controller:'BlogPostController',
+        action:'new'
+    },
+    'POST /blogpost/save': {
+        controller:'BlogpostController',
+        action:'save'
+    },
+
+    // User routes        
+    'GET /user/edit': 'UserController.edituser',
+    'POST /user/updateuser': 'UserController.updateuser',
+    // Auth routes
+    'POST /login': {
+        controller: 'AuthController',
+        action: 'process'
+    },
+    'GET /logout': {
+        controller: 'AuthController',
+        action: 'logout'
+    }
 
   /***************************************************************************
   *                                                                          *

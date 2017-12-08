@@ -49,7 +49,6 @@ module.exports.policies = {
     // feed : ['isNiceToAnimals', 'hasRabbitFood']
     // }
 
-    '*': "authenticated",
     UserController: {
         "create": true,
     },

@@ -17,7 +17,7 @@ module.exports = {
             }
             req.logIn(user, function (err) {
                 if (err) res.send(err);
-                console.log(user);
+                req.session.user = user;
                 return res.redirect('/');
             });
         })(req, res);
@@ -25,6 +25,7 @@ module.exports = {
 
     logout: function (req, res) {
         req.logOut();
+        delete req.session.user;
         return res.redirect('/');
     }
 };

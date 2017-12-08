@@ -1,0 +1,11 @@
+<form class="ui form" method="POST" action="/user/updateuser">
+    <div class="ui inline field">
+        <label>Käyttäjänimi</label>
+        <input type="text" value="<%= req.session.user.name %>" name="name">
+    </div>
+    <div class="ui inline field">
+        <label>Sähköposti</label>
+        <input type="text" value="<%= req.session.user.email %>" name="email">
+    </div>
+    <button type="submit" class="ui button">Tallenna</button>
+</form>
