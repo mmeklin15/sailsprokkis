@@ -55,6 +55,9 @@ module.exports.routes = {
     // User routes        
     'GET /user/edit': 'UserController.edituser',
     'POST /user/updateuser': 'UserController.updateuser',
+    'GET /password/edit': 'UserController.editpassword',
+    'POST /password/update': 'UserController.updatepassword',
+    
     // Auth routes
     'POST /login': {
         controller: 'AuthController',
