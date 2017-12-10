@@ -50,7 +50,7 @@ module.exports.policies = {
     // }
 
     UserController: {
-        "create": true,
+        '*': 'sessionAuth',
     },
     AuthController: {
         '*': true,

@@ -3,3 +3,8 @@
       <%= message %>
     </div>
 <% }) %>
+<% flash.get('error').forEach(function (message) { %>
+  <div class="ui error message">
+    <%= message %>
+  </div>
+<% }) %>

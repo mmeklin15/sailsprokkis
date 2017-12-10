@@ -1,9 +1,10 @@
 // api/policies/authenticated.js
 
 module.exports = function(req, res, next) {
-    if(req.isAuthenticated()) {
+    if(req.session.user) {
         return next();
     } else {
-        return res.send(403, { message: 'Not Authorized' });
+        req.addFlash('error', 'Et ole kirjautunut sisään.');
+        return res.redirect('/');
     }
 };

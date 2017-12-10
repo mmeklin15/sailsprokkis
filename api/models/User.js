@@ -6,6 +6,7 @@
  */
 
 var bcrypt = require('bcrypt');
+const SALT_WORK_FACTOR = 10;
 
 module.exports = {
 
@@ -24,6 +25,17 @@ module.exports = {
       required: true
     },
 
+    verifyPassword: function (password) {
+      return bcrypt.compareSync(password, this.password);
+    },
+
+    changePassword: function(newPassword, cb){
+      this.password = newPassword;
+      this.save(function(err, u) {
+        return cb(err,u);
+      });
+    },
+
     toJSON: function() {
       var obj = this.toObject();
       delete obj.password;
@@ -31,6 +43,19 @@ module.exports = {
     }
   },
   beforeCreate: function(user, cb) {
+    bcrypt.genSalt(10, function(err, salt) {
+        bcrypt.hash(user.password, salt, function(err, hash) {
+            if (err) {
+                console.log(err);
+                cb(err);
+            } else {
+                user.password = hash;
+                cb();
+            }
+        });
+    });
+  },
+  beforeUpdate: function (user, cb) {
     bcrypt.genSalt(10, function(err, salt) {
         bcrypt.hash(user.password, salt, function(err, hash) {
             if (err) {
