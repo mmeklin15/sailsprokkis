@@ -2,11 +2,9 @@
     <!-- Navigaatio -->
     <div class="ui container">
         <div class="ui large secondary inverted pointing menu">
-            <a class="active item" href="/">Blogi</a>
-            <a class="item">Arkisto</a>
-            <a class="item">Muita juttuja</a>
+            <a class="item" href="/">Blogi</a>
+            <a class="item" href="/blogpost/archive">Arkisto</a>
             <% if (req.session.user) { %> 
-                <a class="item">Hallintapaneeli</a>
                 <a class="item" href="/user/edituser"><%= req.session.user.name %> <i class="user circle outline icon"></i></a>
             <% } %>
             <div class="right item">

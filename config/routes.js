@@ -32,25 +32,13 @@ module.exports.routes = {
   *                                                                          *
   ***************************************************************************/
 
-    
-
-    '/test': {view: 'test'},
-
     // Main routes
-    '/': {
-        controller:'MainController',
-        action:'home'
-    },
+    'GET /': 'MainController.home',
 
     // Blogpost routes
-    '/blogpost/new': {
-        controller:'BlogPostController',
-        action:'new'
-    },
-    'POST /blogpost/save': {
-        controller:'BlogpostController',
-        action:'save'
-    },
+    'GET /blogpost/new': 'BlogPostController.new',
+    'POST /blogpost/save': 'BlogpostController.save',
+    'GET /blogpost/archive': 'BlogpostController.archive',
 
     // User routes        
     'GET /user/edit': 'UserController.edituser',

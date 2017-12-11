@@ -1,0 +1,21 @@
+<h2 class="ui centered header">Kirjoitusarkisto</h2>
+<table class="ui table">
+    <thead>
+        <tr>
+            <th>Otsikko</th>
+            <th>Luotu</th>
+            <% if(req.session.user) { %>
+                <th>Tehtävät</th>    
+            <% } %>
+        </tr>
+    </thead>
+    <% posts.forEach(function(el, index) { %>
+        <tr>
+            <td><%= el.subject %></td>
+            <td><%= sails.moment(el.createdAt).format("DD.MM.YYYY") %></td>
+            <% if(req.session.user) { %>
+                <td><a class="ui button" href="">Muokkaa</a><a href="" class="ui button">Poista</a></td>
+            <% } %>
+        </tr>
+    <% }); %>
+</table>

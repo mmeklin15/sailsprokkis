@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title><%=typeof title == 'undefined' ? 'NodeJS blogi' : title%></title>
+    <title><%= sails.config.settings.siteTitle %></title>
 
     <!-- Viewport mobile tag for sensible mobile support -->
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -29,12 +29,13 @@
     -->
 
     <!--STYLES-->
+    <link rel="stylesheet" href="/styles/custom.css">
     <link rel="stylesheet" href="/styles/importer.css">
     <!--STYLES END-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.css">
   </head>
 
-  <body>
+  <body class="Site">
 
     <!-- Header -->
     <%- partial('./partials/header.ejs') %>
@@ -95,9 +96,11 @@
     -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.js"></script>
-    <!--SCRIPTS-->
+    <script src="/js/tinymce/js/tinymce/tinymce.min.js"></script>
     <script src="/js/dependencies/sails.io.js"></script>
     <script src="/js/custom.js"></script>
+    <!--SCRIPTS-->
+    <script src="/js/dependencies/sails.io.js"></script>
     <!--SCRIPTS END-->
   </body>
 </html>

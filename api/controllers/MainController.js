@@ -7,7 +7,7 @@
 
 module.exports = {
 	home: function(req, res) {
-        var postsQ = Blogpost.find().exec(function afterFind(err, blogposts) {
+        Blogpost.find({sort:"createdAt DESC"}).exec(function afterFind(err, blogposts) {
             if (err) {return res.serverError(err);}
             res.view('homepage', {
                     posts: blogposts

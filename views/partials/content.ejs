@@ -1,13 +1,15 @@
 <!-- Kaikki wrapperit ennen pääviewiä -->
-<div class="ui main container" style="margin-top:5em; margin-bottom:3em;">
+<div class="ui main container Site-content" style="margin-top:5em; margin-bottom:3em;">
     <!-- Messaget -->
     <%- partial('./messages.ejs') %>
-    <div class="ui grid">
-        <div class="twelve wide column">
+    <div class="ui stackable grid" id="content">
+        <div class="eleven wide computer sixteen wide tablet column" >
             <%- body %>
         </div>
-        <div class="four wide column">
+        <div class="computer only five wide column">
+            <div class="ui sticky">
             <%- partial('../widgets/widgets.ejs') %>
+            </div>
         </div>
     </div>
     <!-- Pääview -->

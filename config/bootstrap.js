@@ -10,6 +10,7 @@
  */
 
 module.exports.bootstrap = function(done) {
+  sails.moment = require('moment');
   
   User.count({
     email: 'admin@example.com'

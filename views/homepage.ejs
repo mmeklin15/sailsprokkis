@@ -1,13 +1,14 @@
 <% if(req.session.user) { %>
     <div class="ui container">
         <a class="ui primary button" href="/blogpost/new"><i class="add icon"></i> Uusi kirjoitus</a>
-        <a class="ui button"><i class="list icon"></i> Listaa kirjoitukset</a>
     </div>
 <% } %>
-<div class="ui segment">
-<h2 class="ui header">Etusivu</h2>
+<h2 class="ui centered header"><%= sails.config.settings.siteTitle %></h2>
 <% posts.forEach(function(el, index) { %>
-    <h3 class="ui header"><%= el.subject %></h3>
-    <p class="ui text" style="white-space: pre-wrap;"><%= el.content %></p>
+    <div class="ui segment">
+        <h2 class="ui header"><%= el.subject %>
+            <div class="sub header">Julkaistu <%= sails.moment(el.createdAt).format('DD.MM.YYYY HH:mm:ss') %></div>
+        </h2>
+        <p class="ui text" style="white-space: pre-wrap;"><%- el.content %></p>
+    </div>
 <% }); %>
-</div>
