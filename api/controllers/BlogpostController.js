@@ -13,7 +13,7 @@ module.exports = {
     save: function(req, res) {
         Blogpost.create(req.body).exec(function (err, blogpost){
             if (err) { return res.serverError(err); }
-          
+
             sails.log('Saved post with id:', blogpost.id);
             req.addFlash('success', 'Kirjoitus tallennettu');
             res.redirect('/');
@@ -28,6 +28,24 @@ module.exports = {
                 posts: blogposts
             });
         });
+    },
+
+		/*update: function(req, res) {
+        Blogpost.update({id: blogpost.id}).exec(function(err, blogposts){
+					if (err) { return res.serverError(err); }
+
+					res.view('blogposts/update');
+        });
+    },*/
+
+		destroy: function(req, res) {
+				console.log(req.query);
+        Blogpost.destroy({id:req.query.id}).exec(function (err, blogpost){
+            if (err) { return res.serverError(err); }
+
+            sails.log('Deleted post with id:', blogpost.id);
+            req.addFlash('success', 'Kirjoitus poistettu.');
+            res.redirect('/');
+        });
     }
 };
-
