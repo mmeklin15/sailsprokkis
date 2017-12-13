@@ -5,7 +5,7 @@
             <th>Otsikko</th>
             <th>Luotu</th>
             <% if(req.session.user) { %>
-                <th>Tehtävät</th>    
+                <th>Tehtävät</th>
             <% } %>
         </tr>
     </thead>
@@ -14,7 +14,7 @@
             <td><%= el.subject %></td>
             <td><%= sails.moment(el.createdAt).format("DD.MM.YYYY") %></td>
             <% if(req.session.user) { %>
-                <td><a class="ui button" href="">Muokkaa</a><a href="" class="ui button">Poista</a></td>
+                <td><a class="ui button" href="/blogpost/update?id=<%= el.id %>">Muokkaa</a><a href="/blogpost/destroy?id=<%= el.id %>" class="ui button">Poista</a></td>
             <% } %>
         </tr>
     <% }); %>

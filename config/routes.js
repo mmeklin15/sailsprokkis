@@ -39,13 +39,14 @@ module.exports.routes = {
     'GET /blogpost/new': 'BlogPostController.new',
     'POST /blogpost/save': 'BlogpostController.save',
     'GET /blogpost/archive': 'BlogpostController.archive',
+    'GET /blogpost/destroy': 'BlogpostController.destroy',
 
-    // User routes        
+    // User routes
     'GET /user/edit': 'UserController.edituser',
     'POST /user/updateuser': 'UserController.updateuser',
     'GET /password/edit': 'UserController.editpassword',
     'POST /password/update': 'UserController.updatepassword',
-    
+
     // Auth routes
     'POST /login': {
         controller: 'AuthController',
