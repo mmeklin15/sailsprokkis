@@ -8,6 +8,20 @@ require('sails-hook-flash');
 var bcrypt = require('bcrypt');
 
 module.exports = {
+    signup:function(req, res) {
+        res.view('user/signup');
+    },
+
+    create:function(req, res) {
+        console.log(req.body);
+        User.create(req.body).exec(function (err, user) {
+            if (err) {return res.serverError(err);}
+            req.addFlash('success', 'Uusi käyttäjä luotu');
+            res.redirect('/');
+        });
+        
+    },
+
 	edituser: function(req, res) {
         res.view('user/edit');
     },

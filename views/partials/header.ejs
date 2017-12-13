@@ -5,6 +5,7 @@
             <a class="item" href="/">Blogi</a>
             <a class="item" href="/blogpost/archive">Arkisto</a>
             <% if (req.session.user) { %> 
+                <a class="item" href="/user/signup">Lisää käyttäjä</a>
                 <a class="item" href="/user/edituser"><%= req.session.user.name %> <i class="user circle outline icon"></i></a>
             <% } %>
             <div class="right item">

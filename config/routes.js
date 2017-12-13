@@ -45,6 +45,8 @@ module.exports.routes = {
     'POST /user/updateuser': 'UserController.updateuser',
     'GET /password/edit': 'UserController.editpassword',
     'POST /password/update': 'UserController.updatepassword',
+    'GET /user/signup' : 'UserController.signup',
+    'POST /user/create' : 'UserController.create',
     
     // Auth routes
     'POST /login': {
