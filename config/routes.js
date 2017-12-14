@@ -57,6 +57,11 @@ module.exports.routes = {
     'GET /logout': {
         controller: 'AuthController',
         action: 'logout'
+    },
+
+    // Misc routes
+    'GET /ukk': { 
+        view: 'misc/faq' 
     }
 
   /***************************************************************************

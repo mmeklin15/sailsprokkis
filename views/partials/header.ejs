@@ -8,6 +8,7 @@
                 <a class="item" href="/user/signup">Lisää käyttäjä</a>
                 <a class="item" href="/user/edituser"><%= req.session.user.name %> <i class="user circle outline icon"></i></a>
             <% } %>
+            <a class="item" href="/ukk">FAQ</a>
             <div class="right item">
                 <% if (req.session.user) { %>
                     <a href="/logout" class="ui inverted logout button">Kirjaudu ulos</a>
