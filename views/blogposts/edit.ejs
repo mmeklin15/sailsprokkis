@@ -1,0 +1,12 @@
+<form class="ui form" method="POST" action="/blogpost/update">
+    <input type="hidden" name="id" value="<%= post.id %>">
+    <div class="field">
+        <label>Kirjoituksen aihe</label>
+        <input type="text" name="subject" value="<%= post.subject %>">
+    </div>
+    <div class="field">
+        <label>Kirjoituksen sisältö</label>
+        <textarea name="content" id="newblogpost" rows="15"><%= post.content %></textarea>
+    </div>
+    <button type="submit" class="ui primary button"><i class="save icon"></i> Tallenna</button>
+</form>

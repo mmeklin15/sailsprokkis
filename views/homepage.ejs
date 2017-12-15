@@ -6,8 +6,12 @@
 <h2 class="ui centered header"><%= sails.config.settings.siteTitle %></h2>
 <% posts.forEach(function(el, index) { %>
     <div class="ui segment">
-        <h2 class="ui header"><%= el.subject %>
-            <div class="sub header">Julkaistu <%= sails.moment(el.createdAt).format('DD.MM.YYYY HH:mm:ss') %></div>
+        <h2 class="ui header" id="post<%=el.id%>"><%= el.subject %>
+            <div class="sub header">Julkaistu <%= sails.moment(el.createdAt).format('DD.MM.YYYY HH:mm:ss') %>
+                <% if(req.session.user) { %>
+                    <a href="/blogpost/edit?id=<%= el.id %>" class="icon button"><i class="wrench icon"></i></a>
+                <% } %>
+            </div>
         </h2>
         <p class="ui text" style="white-space: pre-wrap;"><%- el.content %></p>
     </div>

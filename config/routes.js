@@ -36,10 +36,12 @@ module.exports.routes = {
     'GET /': 'MainController.home',
 
     // Blogpost routes
-    'GET /blogpost/new': 'BlogPostController.new',
+    'GET /blogpost/new': 'BlogpostController.new',
     'POST /blogpost/save': 'BlogpostController.save',
     'GET /blogpost/archive': 'BlogpostController.archive',
     'GET /blogpost/destroy': 'BlogpostController.destroy',
+    'GET /blogpost/edit' : 'BlogpostController.edit',
+    'POST /blogpost/update' : 'BlogpostController.update',
 
     // User routes
     'GET /user/edit': 'UserController.edituser',

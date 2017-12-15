@@ -11,10 +11,10 @@
     </thead>
     <% posts.forEach(function(el, index) { %>
         <tr>
-            <td><%= el.subject %></td>
+            <td><a href="/#post<%=el.id%>"><%= el.subject %></a></td>
             <td><%= sails.moment(el.createdAt).format("DD.MM.YYYY") %></td>
             <% if(req.session.user) { %>
-                <td><a class="ui button" href="/blogpost/update?id=<%= el.id %>">Muokkaa</a><a href="/blogpost/destroy?id=<%= el.id %>" class="ui button">Poista</a></td>
+                <td><a class="ui button" href="/blogpost/edit?id=<%= el.id %>">Muokkaa</a><a href="/blogpost/destroy?id=<%= el.id %>" class="ui button">Poista</a></td>
             <% } %>
         </tr>
     <% }); %>

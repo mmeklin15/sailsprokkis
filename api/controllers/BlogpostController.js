@@ -30,13 +30,32 @@ module.exports = {
         });
     },
 
-		/*update: function(req, res) {
-        Blogpost.update({id: blogpost.id}).exec(function(err, blogposts){
-					if (err) { return res.serverError(err); }
-
-					res.view('blogposts/update');
+    edit: function(req, res) {
+        Blogpost.findOne({id:req.query.id}).exec(function(err, blogpost){
+            if (err) { return res.serverError(err); }
+            sails.log(req.query);
+            sails.log(blogpost);
+            if (blogpost == undefined) { 
+                req.addFlash('error', 'Kirjoitusta ei löydy');
+                res.redirect('/blogpost/archive'); 
+            }
+            res.view('blogposts/edit', {
+                post:blogpost
+            });
         });
-    },*/
+    },
+
+	update: function(req, res) {
+        Blogpost.update({id: req.body.id},req.body).exec(function(err, blogpost){
+            if (err) { return res.serverError(err); }
+            if(blogpost == undefined) {
+                req.addFlash('error','Kirjoitusta ei voitu päivittää');
+                req.redirect('/');
+            }
+            req.addFlash('success', 'Kirjoitus päivitetty!');
+			res.redirect('/blogpost/archive');
+        });
+    },
 
 		destroy: function(req, res) {
 				console.log(req.query);
